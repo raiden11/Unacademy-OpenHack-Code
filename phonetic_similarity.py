@@ -55,14 +55,14 @@ def manual_testing():
 
     array1 = ['rome', 'rooman', 'noman', 'roma', 'ruman', 'ayush', 'rom', 'roman']
     array = ['kerela', 'sani', 'suni', 'sini', 'sini', 'gini', 'pop', 'dtu', 'meta', 'roman', 'honest', 'khan', 'maths', 'oligopoly', 'pension']
-    array2 = ['tion', 'sion', 'tin']
+    array2 = ['tion', 'siniion', 'tin']
 
     for word in array:
         print(word, phonetic_similarity(word, 'kerala'))
 
 
 
-def match_educators_names():
+def match_educator_names():
 
     first_names = []
     last_names = []
@@ -74,7 +74,7 @@ def match_educators_names():
     Unique last names: 3915
     """
 
-    filename = "edu_names.csv"
+    filename = "educator_names.csv"
     
     with open(filename) as csvfile:
         readCSV = csv.reader(csvfile, delimiter=',')
@@ -96,6 +96,7 @@ def match_educators_names():
 
 
     # Good results for shefali, anoop, puja, ayussh, piyush, khusboo, gouri
+    # several messed up results, try with lower cutoff
     fields = ['First Name', 'Similar First Names']
     with open('phonetically_similar_first_names.csv', 'w') as csvfile:
         
@@ -109,7 +110,7 @@ def match_educators_names():
             for dname in first_names:
                 if dname != name and phonetic_similarity(dname, name) <= 0.3:  # modifiable
                     row.append(dname)
-
+            print(name)
             if len(row) > 1:
                 csvwriter.writerow(row)
 
@@ -128,7 +129,7 @@ def match_educators_names():
             for dname in last_names:
                 if dname != name and phonetic_similarity(dname, name) <= 0.3:  # modifiable
                     row.append(dname)
-
+            print(name)
             if len(row) > 1:
                 csvwriter.writerow(row)
 
