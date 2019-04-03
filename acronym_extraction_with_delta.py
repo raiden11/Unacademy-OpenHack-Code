@@ -148,7 +148,6 @@ def find_proximal_expansion(all_initials, descriptions, names, threshold):
 			if i == 5:
 				break
 		
-		# print(idxx)	
 	return abbrevation_expansions
 
 
@@ -158,7 +157,7 @@ def merge_results(threshold):
 	all_initials = preprocess_abbreviations(frequent_abbreviations)
 	descriptions, names = preprocess_descriptions()
 	abbreviation_expansions = find_proximal_expansion(all_initials, descriptions, names, threshold)
-	schwartz_hearst_abbreviation_expansions = schwartz_hearst.extract_abbreviation_definition_pairs('./abbreviation_data_set.csv')
+	`																																																			schwartz_hearst_abbreviation_expansions = schwartz_hearst.extract_abbreviation_definition_pairs('./abbreviation_data_set.csv')
 	
 	fields = ['Acronym', 'Expansions']	
 	with open("final_merged_abbreviations.csv", "w") as csvfile:
@@ -202,33 +201,11 @@ def merge_results(threshold):
 				row.append(word)
 			csvwriter.writerow(row)
 
-		# for abbreviation in frequent_abbreviations:
-		# 	row = []
-		# 	row.append(abbreviation)
-		# 	abbreviation = abbreviation.lower()
-		# 	left = 3
-		# 	if abbreviation in schwartz_hearst_abbreviation_expansions:
-		# 		row.append(schwartz_hearst_abbreviation_expansions[abbreviation])
-		# 		left = 2
-		# 		for word in abbreviation_expansions[abbreviation]:
-		# 			if word != schwartz_hearst_abbreviation_expansions[abbreviation]:
-		# 				row.append(word)
-		# 				left -= 1
-		# 			if left == 0:
-		# 				break
-
-		# 	else:
-		# 		left = 3
-		# 		for word in abbreviation_expansions[abbreviation]:
-		# 			row.append(word)
-		# 			left -= 1
-		# 			if left == 0:
-		# 				break
-		# 	print(row)
-		# 	csvwriter.writerow(row)
-
 
 merge_results(1)
+
+
+# Interesting Results:
 # Correct:
 # HRM: Human Resource Management
 # NTSE: 

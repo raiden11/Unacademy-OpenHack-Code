@@ -31,13 +31,11 @@ def detect_from_file():
 		for row in readCSV:
 			rows.append(row)
 			detect_acronyms(row[0])
-		print(acronyms_list)
 		# english_words = enchant.Dict("en_US")
 		# for word in acronyms_list:
 		# 	if english_words.check(word):
 		# 		print(word)
-		print(len(acronyms_list))
-
+		
 
 def find_expansion():
 
